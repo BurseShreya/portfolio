@@ -2,195 +2,324 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shreya Burse — Software Developer Portfolio</title>
-  <meta name="description" content="Shreya Burse | Full-Stack & .NET Developer. Clean code, delightful UX, measurable results." />
+
   <style>
-    /* ---- Minimal, modern portfolio CSS (single file) ---- */
-    :root{
-      --bg:#0b1220; --card:#071422; --muted:#9aa6b2; --accent:#7ef9c6; --glass:rgba(255,255,255,0.04);
-      --radius:14px; --maxw:1100px; --ff:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial;
+    :root {
+      --bg:#0b1220; 
+      --card:#071422; 
+      --muted:#9aa6b2; 
+      --accent:#7ef9c6; 
+      --glass:rgba(255,255,255,0.04);
+      --radius:14px; 
+      --maxw:1100px; 
+      --ff:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0;font-family:var(--ff);background:linear-gradient(180deg,#05111a 0%,#081826 60%),radial-gradient(600px 300px at 10% 10%, rgba(126,249,198,0.04), transparent);color:#e6f0f2}
-    .site{max-width:var(--maxw);margin:40px auto;padding:28px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:20px;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
 
-    header{display:flex;align-items:center;gap:20px}
-    .avatar{width:96px;height:96px;border-radius:16px;background:linear-gradient(135deg,var(--accent),#50bfff);display:flex;align-items:center;justify-content:center;font-weight:700;color:#042;box-shadow:0 6px 20px rgba(126,249,198,0.08)}
-    h1{margin:0;font-size:26px}
-    p.lead{margin:6px 0 0;color:var(--muted)}
+    * { box-sizing:border-box; }
 
-    .grid{display:grid;grid-template-columns: 1fr 360px;gap:28px;margin-top:22px}
-    @media (max-width:900px){.grid{grid-template-columns:1fr} .meta{order:2}}
+    html, body {
+      margin:0;
+      padding:0;
+      width:100%;
+      min-height:100%;
+      overflow-x:hidden;
+      font-family:var(--ff);
+      background:linear-gradient(180deg,#05111a 0%,#081826 60%),
+                 radial-gradient(600px 300px at 10% 10%, rgba(126,249,198,0.04), transparent);
+      color:#e6f0f2;
+    }
 
-    /* Card */
-    .card{background:var(--card);padding:18px;border-radius:12px;backdrop-filter: blur(6px);box-shadow:inset 0 1px 0 rgba(255,255,255,0.02)}
+    /* MAIN WRAPPER */
+    .site {
+      max-width:var(--maxw);
+      margin:40px auto;
+      padding:20px;
+      background:rgba(255,255,255,0.03);
+      border-radius:20px;
+      box-shadow:0 8px 30px rgba(2,6,23,0.6);
+    }
 
-    /* Top actions */
-    .actions{display:flex;gap:10px;margin-left:auto}
-    .btn{background:var(--glass);padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);cursor:pointer;color:var(--accent);font-weight:600;text-decoration:none}
+    /* HEADER */
+    header {
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:20px;
+    }
 
-    /* Skills */
-    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-    .chip{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:8px 10px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);font-size:13px;color:var(--muted)}
+    .avatar {
+      width:90px;
+      height:90px;
+      border-radius:16px;
+      background:linear-gradient(135deg,var(--accent),#50bfff);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:26px;
+      font-weight:700;
+      color:#042;
+    }
 
-    /* Projects list */
-    .projects{display:grid;gap:16px}
-    .project{display:flex;gap:14px;align-items:stretch}
-    .thumb{width:140px;height:96px;border-radius:10px;flex:0 0 140px;background:linear-gradient(135deg,#062022,#07273a);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px}
-    .project h3{margin:0 0 6px;font-size:16px}
-    .meta-line{color:var(--muted);font-size:13px}
+    h1 {
+      margin:0;
+      font-size:24px;
+    }
 
-    /* Case study */
-    .case{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    @media (max-width:900px){.case{grid-template-columns:1fr}}
+    p.lead { margin:5px 0 0; color:var(--muted); }
 
-    footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
+    /* BUTTONS */
+    .actions {
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-left:auto;
+    }
 
-    /* subtle animations */
-    .reveal{transform:translateY(12px);opacity:0;animation:reveal 700ms ease forwards}
-    .reveal.delay{animation-delay:120ms}
-    @keyframes reveal{to{transform:none;opacity:1}}
+    .btn {
+      background:var(--glass);
+      padding:10px 12px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.05);
+      color:var(--accent);
+      font-weight:600;
+      text-decoration:none;
+      white-space:nowrap;
+    }
 
-    /* resume download */
-    .resume{display:inline-block;padding:10px 14px;border-radius:12px;background:linear-gradient(90deg,var(--accent),#50bfff);color:#042;font-weight:700;text-decoration:none}
+    .resume {
+      background:linear-gradient(90deg,var(--accent),#50bfff);
+      color:#042;
+      font-weight:700;
+      padding:10px 14px;
+      border-radius:12px;
+      text-decoration:none;
+    }
 
-    /* contact */
-    .contact-row{display:flex;gap:10px;flex-wrap:wrap}
-    .contact-item{background:rgba(255,255,255,0.02);padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
+    /* GRID */
+    .grid {
+      display:grid;
+      grid-template-columns: minmax(0, 1fr) 360px;
+      gap:28px;
+      margin-top:22px;
+      width:100%;
+    }
 
-    /* visual metric */
-    .metric{display:flex;align-items:center;gap:12px}
-    .metric .num{font-weight:800;font-size:20px;color:var(--accent)}
+    @media (max-width:900px) {
+      .grid {
+        grid-template-columns:1fr;
+      }
+    }
 
-    /* small print */
-    .tag{font-size:12px;padding:6px 8px;background:rgba(255,255,255,0.02);border-radius:8px;color:var(--muted)}
-body {
-  margin: 0;
-  background: #071017;
-}
+    /* CARD */
+    .card {
+      background:var(--card);
+      padding:18px;
+      border-radius:12px;
+      backdrop-filter:blur(6px);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+
+    /* SKILLS */
+    .skills {
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:12px;
+    }
+
+    .chip {
+      background:rgba(255,255,255,0.05);
+      padding:8px 10px;
+      border-radius:10px;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    /* PROJECTS */
+    .projects { display:grid; gap:16px; }
+    .project { display:flex; gap:14px; }
+    @media (max-width:600px) {
+      .project { flex-direction:column; }
+    }
+
+    .thumb {
+      width:140px;
+      height:96px;
+      border-radius:10px;
+      flex-shrink:0;
+      background:linear-gradient(135deg,#062022,#07273a);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .meta-line { color:var(--muted); font-size:13px; }
+
+    /* CASE STUDY */
+    .case {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    @media (max-width:900px) {
+      .case { grid-template-columns:1fr; }
+    }
+
+    /* CONTACT */
+    .contact-row {
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .contact-item {
+      background:rgba(255,255,255,0.05);
+      padding:10px 12px;
+      border-radius:10px;
+      font-size:14px;
+    }
+
+    .tag {
+      font-size:12px;
+      padding:6px 8px;
+      background:rgba(255,255,255,0.06);
+      border-radius:8px;
+      color:var(--muted);
+    }
+
+    footer {
+      margin-top:28px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+    }
 
   </style>
 </head>
 
+
 <body>
   <main class="site">
-    <header class="reveal">
+
+    <!-- HEADER -->
+    <header>
       <div class="avatar">SB</div>
+
       <div>
-        <h1>Shreya Burse — Software Developer (Full-Stack & .NET)</h1>
-        <p class="lead">I build crisp, production-ready web apps and APIs. I focus on performance, maintainability, and delightful developer experience. Open to backend, full-stack roles.</p>
+        <h1>Shreya Burse — Software Developer (.NET / Full-Stack)</h1>
+        <p class="lead">I build production-ready apps, APIs & backend systems with clean architecture.</p>
       </div>
+
       <div class="actions">
         <a class="btn" href="#projects">Projects</a>
         <a class="btn" href="#contact">Contact</a>
-        <a class="resume" href="Shreya_Burse_Resume.pdf" download="Shreya_Burse_Resume.pdf">Download Resume</a>
+        <a class="resume" href="Shreya_Burse_Resume.pdf" download>Download Resume</a>
       </div>
     </header>
 
+
+    <!-- GRID -->
     <section class="grid">
+
+      <!-- MAIN SECTION -->
       <div>
-        <section class="card reveal delay">
-          <h2 style="margin-top:0">About</h2>
-          <p style="color:var(--muted);margin:8px 0">
-            Experienced in building enterprise web applications using ASP.NET Core, C#, and modern front-end stacks. I enjoy transforming complex business rules into simple, testable services.
+
+        <!-- ABOUT -->
+        <section class="card">
+          <h2>About</h2>
+          <p style="color:var(--muted)">
+            Experienced in ASP.NET Core, C#, SQL, APIs & modern backend architecture. 
+            I convert complex logic into clean, scalable systems.
           </p>
 
-          <div style="display:flex;gap:18px;margin-top:12px;align-items:center">
-            <div class="metric"><div class="num">2+</div><div style="color:var(--muted)">years experience</div></div>
-            <div class="metric"><div class="num">20+</div><div style="color:var(--muted)">production features shipped</div></div>
-            <div class="metric"><div class="num">99.9%</div><div style="color:var(--muted)">API uptimes on critical apps</div></div>
+          <div style="display:flex;gap:18px;margin-top:12px;flex-wrap:wrap">
+            <div class="metric"><span style="color:var(--accent);font-weight:800;font-size:20px;">2+</span> years experience</div>
+            <div class="metric"><span style="color:var(--accent);font-weight:800;font-size:20px;">20+</span> features shipped</div>
+            <div class="metric"><span style="color:var(--accent);font-weight:800;font-size:20px;">99.9%</span> API uptime</div>
           </div>
 
-          <h3 style="margin-top:14px">Core strengths</h3>
+          <h3 style="margin-top:14px">Core skills</h3>
           <div class="skills">
             <div class="chip">ASP.NET Core</div>
             <div class="chip">C# / .NET 8</div>
-            <div class="chip">REST & gRPC APIs</div>
-            <div class="chip">SQL Server / EF Core</div>
-            <div class="chip">GitHub / IIS Server / CI</div>
-            <div class="chip">C / Java</div>
-            <div class="chip">Unit & Integration Tests</div>
+            <div class="chip">EF Core</div>
+            <div class="chip">REST APIs</div>
+            <div class="chip">RabbitMQ</div>
+            <div class="chip">SQL Server</div>
             <div class="chip">Clean Architecture</div>
+            <div class="chip">Testing</div>
           </div>
-
-          <h3 style="margin-top:14px">What I bring to a team</h3>
-          <ul style="color:var(--muted);line-height:1.5">
-            <li>Systematic approach: small, testable increments with strong CI and code review.</li>
-            <li>Product focus: feature decisions guided by measurable user impact and performance.</li>
-            <li>Mentorship: I enjoy upskilling teammates on clean code and system design.</li>
-          </ul>
         </section>
 
-        <!-- PROJECTS SECTION -->
-        <section id="projects" class="card reveal" style="margin-top:18px">
-          <h2>Selected Projects</h2>
+        <!-- PROJECTS -->
+        <section id="projects" class="card" style="margin-top:18px">
+          <h2>Projects</h2>
+
           <div class="projects">
 
-            <!-- Project 1 -->
             <article class="project">
-              <div class="thumb">Inventory App<br/><span style="font-size:11px;color:var(--muted)">ASP.NET Core</span></div>
+              <div class="thumb">Inventory<br>ASP.NET</div>
               <div>
-                <h3>Smart Inventory — Desktop & Web</h3>
-                <div class="meta-line">Inventory management system for a mid-size manufacturing unit. Built REST APIs and an admin SPA. Result: 32% less stock-overruns in first 3 months.</div>
-                <div style="margin-top:8px" class="tag">Context: Manufacturing · Role: Backend & API Lead</div>
+                <h3>Smart Inventory – Desktop & Web</h3>
+                <div class="meta-line">
+                  REST API + SPA for inventory automation. Reduced stock errors by 32%.
+                </div>
+                <div class="tag" style="margin-top:8px">Backend & API Developer</div>
               </div>
             </article>
 
-            <!-- ⭐ NEW PROJECT INSERTED HERE ⭐ -->
             <article class="project">
-              <div class="thumb">E-Commerce API<br/><span style="font-size:11px;color:var(--muted)">.NET 8 + EF Core</span></div>
+              <div class="thumb">API<br>.NET 8</div>
               <div>
                 <h3>E-Commerce Multi-Store API</h3>
                 <div class="meta-line">
-                  Backend supporting multiple shops, products, roles, and orders.
-                  Implemented JWT Auth, refresh tokens, clean architecture, and optimized EF Core queries.
-                  Designed to scale across multiple independent store-fronts.
+                  JWT Auth, refresh tokens, clean architecture, multi-store support.
                 </div>
-                <div style="margin-top:8px" class="tag">Context: Retail · Role: Backend Developer</div>
+                <div class="tag" style="margin-top:8px">Backend Developer</div>
               </div>
             </article>
 
-           
-           <!-- Project 3: Notification Microservices -->
-<article class="project">
-  <div class="thumb">Microservices<br/><span style="font-size:11px;color:var(--muted)">.NET 8 + RabbitMQ</span></div>
-  <div>
-    <h3>Product Notification Microservices</h3>
-    <div class="meta-line">
-      Built an event-driven microservices system that sends real-time product alerts 
-      like <em>“New product added”, “Back in stock”</em> and <em>“Inventory updated”</em>. 
-      Implemented publisher–consumer messaging using RabbitMQ, background worker services, 
-      and clean architecture for fully decoupled communication.
-    </div>
-    <div style="margin-top:8px" class="tag">Context: Inventory Automation · Role: Backend Developer</div>
-  </div>
-</article>
+            <article class="project">
+              <div class="thumb">Microservices<br>RabbitMQ</div>
+              <div>
+                <h3>Product Notification Microservices</h3>
+                <div class="meta-line">
+                  Event-driven services with RabbitMQ for real-time product notifications.
+                </div>
+                <div class="tag" style="margin-top:8px">Backend Developer</div>
+              </div>
+            </article>
 
           </div>
         </section>
 
+
         <!-- CASE STUDY -->
-        <section class="card reveal" style="margin-top:18px">
-          <h2>Case Study — Smart Inventory (brief)</h2>
+        <section class="card" style="margin-top:18px">
+          <h2>Case Study — Smart Inventory</h2>
+
           <div class="case">
             <div>
               <h3>Problem</h3>
-              <p style="color:var(--muted)">Manual stock logs, errors, and delayed reorder triggers caused frequent stockouts.</p>
+              <p style="color:var(--muted)">Manual stock logs caused stockouts & delays.</p>
 
               <h3>Solution</h3>
               <ul style="color:var(--muted)">
-                <li>ASP.NET Core API with CQRS + EF Core</li>
-                <li>Scheduled reconciliation jobs + low-stock alerts</li>
-                <li>Admin SPA built with React</li>
+                <li>ASP.NET Core API</li>
+                <li>CQRS + EF Core</li>
+                <li>Automated alerts + reconciliation jobs</li>
               </ul>
             </div>
 
             <div>
               <h3>Impact</h3>
               <ul style="color:var(--muted)">
-                <li>32% reduction in stock overruns</li>
+                <li>32% fewer stock errors</li>
                 <li>43% faster reorder decisions</li>
                 <li>₹1.5L monthly savings</li>
               </ul>
@@ -200,58 +329,32 @@ body {
 
       </div>
 
+
       <!-- SIDEBAR -->
-      <aside class="meta card reveal">
+      <aside class="meta card">
         <h3>Contact</h3>
-        <div id="contact" style="margin-top:8px">
-          <div class="contact-row">
-            <div class="contact-item">📧 burseshreya37@gmail.com</div>
-            <div class="contact-item">📱 +91 8698680250</div>
-          </div>
 
-          <h4 style="margin-top:12px">Quick links</h4>
-          <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
-            <a class="btn" href="https://www.linkedin.com/in/shreya-burse-9a9115209/" target="_blank">LinkedIn</a>
-            <a class="btn" href="#" target="_blank">GitHub</a>
-            <a class="btn" href="#" target="_blank">Live Projects</a>
-          </div>
-
-          <h4 style="margin-top:14px">Availability</h4>
-          <div style="color:var(--muted)">Open to full-time & contract · Immediate joiner</div>
-
-          <h4 style="margin-top:14px">Education</h4>
-          <div style="color:var(--muted)">MCA · Self-taught .NET Developer</div>
-
-          <h4 style="margin-top:14px">Want to hire me?</h4>
-          <div style="margin-top:8px">
-            <a class="resume" href="mailto:burseshreya37@gmail.com?subject=Hiring%20Inquiry%20-%20Shreya%20Burse">Email to hire</a>
-          </div>
-
-          <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px">
-            <div class="tag">Seeking: Backend / Full-Stack Roles</div>
-            <div class="tag">Preferred Stack: .NET, MSSQL, Web API</div>
-          </div>
+        <div id="contact" class="contact-row" style="margin-top:10px">
+          <div class="contact-item">📧 burseshreya37@gmail.com</div>
+          <div class="contact-item">📱 +91 8698680250</div>
         </div>
 
-        <div style="margin-top:18px;border-top:1px solid rgba(255,255,255,0.02);padding-top:12px;color:var(--muted)">
-          <strong style="color:var(--accent)">Availability</strong>
-          <div style="margin-top:6px">Full-time · Remote / Onsite (Pune)</div>
-        </div>
+        <h4 style="margin-top:12px">Quick Links</h4>
+        <a class="btn" href="https://www.linkedin.com/in/shreya-burse-9a9115209/" target="_blank">LinkedIn</a>
+
+        <h4 style="margin-top:14px">Availability</h4>
+        <div style="color:var(--muted)">Immediate Joiner · Backend & Full-Stack Roles</div>
+
+        <h4 style="margin-top:14px">Education</h4>
+        <div style="color:var(--muted)">MCA · Self-taught .NET Developer</div>
+
+        <div class="tag" style="margin-top:16px">Preferred: .NET · MSSQL · Web API</div>
       </aside>
+
     </section>
 
-    <footer>
-      @ S H R E Y A B U R S E.
-    </footer>
+    <footer>@ Shreya Burse</footer>
   </main>
-
-  <script>
-    document.addEventListener('DOMContentLoaded',()=>{
-      document.querySelectorAll('.reveal').forEach((el,i)=>{
-        el.style.animationDelay=(i*90)+'ms';
-      });
-    });
-  </script>
 
 </body>
 </html>
